@@ -45,6 +45,12 @@ export const ArtistListPage = () => {
                         </div>
                         <div className="actions">
                             <button
+                                className="view-button"
+                                onClick={() => navigate(`/view/${artist.id}`)}
+                            >
+                                View
+                            </button>
+                            <button
                                 className="edit-button"
                                 onClick={() => navigate(`/edit/${artist.id}`)}
                             >
