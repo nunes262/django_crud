@@ -33,34 +33,34 @@ export const ArtistListPage = () => {
         <div className="app-container">
             <h1>Gerenciamento de artistas</h1>
             <button onClick={() => navigate("/add")} className="add-button">
-                Add New Artist
+                Adicionar novo artista
             </button>
             <ul className="artist-list">
                 {artists.map((artist) => (
                     <li key={artist.id}>
                         <div>
-                            <strong>
-                                {artist.name} ({artist.type})
-                            </strong>
+                            <p>
+                                {artist.name} - {artist.email}
+                            </p>
                         </div>
                         <div className="actions">
                             <button
                                 className="view-button"
                                 onClick={() => navigate(`/view/${artist.id}`)}
                             >
-                                View
+                                Mais informações
                             </button>
                             <button
                                 className="edit-button"
                                 onClick={() => navigate(`/edit/${artist.id}`)}
                             >
-                                Edit
+                                Editar
                             </button>
                             <button
                                 className="cancel-button"
                                 onClick={() => handleDeleteArtist(artist.id)}
                             >
-                                Delete
+                                Deletar
                             </button>
                         </div>
                     </li>

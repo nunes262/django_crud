@@ -22,23 +22,34 @@ export const ViewArtistPage = () => {
     };
 
     return (
-        <div className="view-container">
+        <div className="app-container">
             {artist ? (
-                <div>
-                    <h1>{artist.name}</h1>
-                    <p>Type: {artist.type}</p>
-                    <p>Email: {artist.email}</p>
-                    <p>Document: {artist.document}</p>
-                    <p>Document Type: {artist.document_type}</p>
+                <div className="artist-info">
+                    <h1>Informações do artista</h1>
+                    <p>
+                        <b>Nome:</b> {artist.name}
+                    </p>
+                    <p>
+                        <b>Tipo de artista:</b> {artist.type}
+                    </p>
+                    <p>
+                        <b>Email:</b> {artist.email}
+                    </p>
+                    <p>
+                        <b>Document:</b> {artist.document}
+                    </p>
+                    <p>
+                        <b>Tipo de documento:</b> {artist.document_type}
+                    </p>
                     <button
                         onClick={() => navigate("/")}
-                        className="back-button"
+                        className="cancel-button"
                     >
-                        Back
+                        Voltar
                     </button>
                 </div>
             ) : (
-                <p>Loading...</p>
+                <p>Carregando...</p>
             )}
         </div>
     );

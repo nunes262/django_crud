@@ -53,7 +53,7 @@ export const ArtistFormPage = () => {
     return (
         <div className="form-container">
             <div className="form-inputs">
-                <h1>{id ? "Edit Artist" : "Add New Artist"}</h1>
+                <h1>{id ? "Edição de Artista" : "Adição de Artista"}</h1>
                 <input
                     type="text"
                     name="name"
@@ -96,10 +96,10 @@ export const ArtistFormPage = () => {
                         onClick={() => navigate("/")}
                         className="cancel-button"
                     >
-                        Cancel
+                        Cancelar
                     </button>
                     <button onClick={handleSaveArtist} className="add-button">
-                        {id ? "Update" : "Add"}
+                        {id ? "Atualizar" : "Adicionar"}
                     </button>
                 </div>
             </div>
