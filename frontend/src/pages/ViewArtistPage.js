@@ -3,6 +3,14 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "../App.css";
 
+const formatCPF = (cpf) => {
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+};
+
+const formatRG = (rg) => {
+    return rg.replace(/(\d{2})(\d{3})(\d{3})(\d{1})/, "$1.$2.$3-$4");
+};
+
 export const ViewArtistPage = () => {
     const { id } = useParams();
     const [artist, setArtist] = useState(null);
@@ -21,6 +29,15 @@ export const ViewArtistPage = () => {
             .catch((error) => console.error(error));
     };
 
+    const formatDocument = (document, documentType) => {
+        if (documentType === "CPF") {
+            return formatCPF(document);
+        } else if (documentType === "RG") {
+            return formatRG(document);
+        }
+        return document;
+    };
+
     return (
         <div className="app-container">
             {artist ? (
@@ -36,7 +53,8 @@ export const ViewArtistPage = () => {
                         <b>Email:</b> {artist.email}
                     </p>
                     <p>
-                        <b>Document:</b> {artist.document}
+                        <b>Documento:</b>{" "}
+                        {formatDocument(artist.document, artist.document_type)}
                     </p>
                     <p>
                         <b>Tipo de documento:</b> {artist.document_type}
